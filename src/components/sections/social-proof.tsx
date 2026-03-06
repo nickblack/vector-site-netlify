@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 const companies = [
-  { name: "Crypto Quantique", logo: "/logos/crypto-quantique.svg" },
-  { name: "Rain", logo: "/logos/rain.svg" },
-  { name: "PricingMonkey", logo: "/logos/pricingmonkey.svg" },
-  { name: "QuestDB", logo: "/logos/questdb.svg" },
-  { name: "Signal AI", logo: "/logos/signal-ai.svg" },
-  { name: "Xeneta", logo: "/logos/xeneta.svg" },
+  { name: "Crypto Quantique", logo: "/logos/crypto-quantique.svg", className: "h-16 md:h-[4.5rem]" },
+  { name: "Rain", logo: "/logos/rain.svg", className: "h-8 md:h-9" },
+  { name: "PricingMonkey", logo: "/logos/pricingmonkey.svg", className: "h-6 md:h-7" },
+  { name: "QuestDB", logo: "/logos/questdb.svg", className: "h-7 md:h-8" },
+  { name: "Signal AI", logo: "/logos/signal-ai.svg", className: "h-7 md:h-8" },
+  { name: "Xeneta", logo: "/logos/xeneta.svg", className: "h-7 md:h-8" },
 ];
 
 export function SocialProof() {
@@ -16,16 +16,20 @@ export function SocialProof() {
         <p className="text-center text-muted-foreground text-sm mb-10">
           Trusted by deep tech founders at
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
+        <div className="flex items-center justify-between">
           {companies.map((company) => (
-            <Image
+            <div
               key={company.name}
-              src={company.logo}
-              alt={company.name}
-              width={140}
-              height={40}
-              className="h-8 md:h-10 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale"
-            />
+              className="flex items-center justify-center"
+            >
+              <Image
+                src={company.logo}
+                alt={company.name}
+                width={160}
+                height={60}
+                className={`${company.className} w-auto opacity-70 hover:opacity-100 transition-opacity`}
+              />
+            </div>
           ))}
         </div>
       </div>
